@@ -8,9 +8,8 @@ import GameScreen from './screens/GameScreen';
 export default function App() {
   const [userNumber, setUserNumber] = useState();
 
-  const startGameHandler = selectedNum => {
-    setUserNumber(selectedNum);
-    console.log(userNumber);
+  const startGameHandler = selectedNumber => {
+    setUserNumber(selectedNumber);
   };
 
   let content = <StartGameScreen onStartGame={startGameHandler} />;
@@ -21,7 +20,7 @@ export default function App() {
 
   return (
     <View style={styles.screen}>
-      <Header title='Guess A Number' />
+      <Header title="Guess a Number" />
       {content}
     </View>
   );
@@ -29,6 +28,6 @@ export default function App() {
 
 const styles = StyleSheet.create({
   screen: {
-    flex: 1,
-  },
+    flex: 1
+  }
 });
