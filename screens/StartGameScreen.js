@@ -34,7 +34,7 @@ const StartGameScreen = props => {
       Alert.alert(
         'Invalid Number!',
         'Number Has to Be A Number Between 1 to 99',
-        [{ text: 'Okay', style: 'destructive', onPress: resetInputHandler }]
+        [{ text: 'Okay', style: 'destructive', onPress: resetInputHandler}]
       );
     }
     setConfirmed(true);
@@ -50,7 +50,7 @@ const StartGameScreen = props => {
       <Card style={styles.summary}>
         <Text style={{fontSize: 18}}>You Selected</Text>
         <NumberContainer>{selectedNumber}</NumberContainer>
-        <Button title='Start Game' />
+        <Button title='Start Game' onPress={() => props.onStartGame(selectedNumber)} />
       </Card>
     );
   }
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    marginVertical: 10,
+    marginVertical: 15,
   },
   inputContainer: {
     width: 300,
