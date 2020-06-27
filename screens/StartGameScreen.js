@@ -13,6 +13,7 @@ import Card from '../components/Card';
 import Input from '../components/Input';
 import Colors from '../constants/Colors';
 import NumberContainer from '../components/NumberContainer';
+import MainButton from '../components/MainButton';
 import BodyText from '../components/BodyText';
 import Title from '../components/Title';
 
@@ -36,7 +37,7 @@ const StartGameScreen = props => {
       Alert.alert(
         'Invalid Number!',
         'Number Has to Be A Number Between 1 to 99',
-        [{ text: 'Okay', style: 'destructive', onPress: resetInputHandler}]
+        [{ text: 'Okay', style: 'destructive', onPress: resetInputHandler }]
       );
     }
     setConfirmed(true);
@@ -52,7 +53,9 @@ const StartGameScreen = props => {
       <Card style={styles.summary}>
         <Text style={styles.text}>You Selected</Text>
         <NumberContainer>{selectedNumber}</NumberContainer>
-        <Button title='Start Game' onPress={() => props.onStartGame(selectedNumber)} />
+        <MainButton style={{marginTop: 10}} onPress={() => props.onStartGame(selectedNumber)}>
+          Start Game
+        </MainButton>
       </Card>
     );
   }
@@ -66,13 +69,13 @@ const StartGameScreen = props => {
       <View style={styles.screen}>
         <Title style={styles.title}>Start A New Game</Title>
         <Card style={styles.inputContainer}>
-          <BodyText style={{fontSize: 18}}>Select A Number</BodyText>
+          <BodyText style={{ fontSize: 18 }}>Select A Number</BodyText>
           <Input
             style={styles.input}
             blurOnSubmit
-            autoCapitalize="none"
+            autoCapitalize='none'
             autoCorrect={false}
-            keyboardType="number-pad"
+            keyboardType='number-pad'
             maxLength={2}
             onChangeText={numberInputHandler}
             value={enteredValue}
@@ -80,14 +83,14 @@ const StartGameScreen = props => {
           <View style={styles.buttons}>
             <View style={styles.btn}>
               <Button
-                title="Reset"
+                title='Reset'
                 color={Colors.accent}
                 onPress={resetInputHandler}
               />
             </View>
             <View style={styles.btn}>
               <Button
-                title="Confirm"
+                title='Confirm'
                 color={Colors.primary}
                 onPress={confirmInputHandler}
               />
@@ -132,11 +135,11 @@ const styles = StyleSheet.create({
   },
   summary: {
     marginTop: 20,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   text: {
     fontSize: 18,
-  }
+  },
 });
 
 export default StartGameScreen;

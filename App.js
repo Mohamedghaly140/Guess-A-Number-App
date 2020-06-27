@@ -30,40 +30,39 @@ export default function App() {
     );
   }
 
-  // const restartNewGameHandler = () => {
-  //   setGuessRound(0);
-  //   setUserNumber(null);
-  // };
+  const restartNewGameHandler = () => {
+    setGuessRound(0);
+    setUserNumber(null);
+  };
 
-  // const startGameHandler = selectedNumber => {
-  //   setUserNumber(selectedNumber);
-  // };
+  const startGameHandler = selectedNumber => {
+    setUserNumber(selectedNumber);
+  };
 
-  // const gameOverHandler = numOfRounds => {
-  //   setGuessRound(numOfRounds);
-  // };
+  const gameOverHandler = numOfRounds => {
+    setGuessRound(numOfRounds);
+  };
 
-  // let content = <StartGameScreen onStartGame={startGameHandler} />;
+  let content = <StartGameScreen onStartGame={startGameHandler} />;
 
-  // if (userNumber && guessRounds <= 0) {
-  //   content = (
-  //     <GameScreen userChoice={userNumber} onGameOver={gameOverHandler} />
-  //   );
-  // } else if (guessRounds > 0) {
-  //   content = (
-  //     <GameOverScreen
-  //       roundsNumber={guessRounds}
-  //       userNumber={userNumber}
-  //       onRestart={restartNewGameHandler}
-  //     />
-  //   );
-  // }
+  if (userNumber && guessRounds <= 0) {
+    content = (
+      <GameScreen userChoice={userNumber} onGameOver={gameOverHandler} />
+    );
+  } else if (guessRounds > 0) {
+    content = (
+      <GameOverScreen
+        roundsNumber={guessRounds}
+        userNumber={userNumber}
+        onRestart={restartNewGameHandler}
+      />
+    );
+  }
 
   return (
     <View style={styles.screen}>
       <Header title='Guess a Number' />
-      {/* {content} */}
-      <GameOverScreen />
+      {content}
     </View>
   );
 }
