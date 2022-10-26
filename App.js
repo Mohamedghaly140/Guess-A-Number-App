@@ -5,6 +5,7 @@ import { StyleSheet, ImageBackground, SafeAreaView } from "react-native";
 
 import StartGameScreen from "./src/screens/StartGameScreen";
 import GameScreen from "./src/screens/GameScreen";
+import Colors from "./src/constants/colors";
 
 export default function App() {
   const [userNumber, setUserNumber] = useState();
@@ -16,7 +17,10 @@ export default function App() {
   return (
     <>
       <StatusBar style="light" />
-      <LinearGradient style={styles.rootScreen} colors={["#4e0329", "#ddb52f"]}>
+      <LinearGradient
+        style={styles.rootScreen}
+        colors={[Colors.primary700, Colors.accent500]}
+      >
         <ImageBackground
           source={require("./assets/images/background.png")}
           resizeMode="cover"
