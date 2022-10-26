@@ -23,6 +23,7 @@ export default PrimaryButton;
 
 const styles = StyleSheet.create({
   buttonOuterContainer: {
+    flex: 1,
     margin: 4,
     borderRadius: 28,
     backgroundColor: Colors.primary500,
